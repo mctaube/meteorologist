@@ -21,6 +21,7 @@ beg_url = "https://maps.googleapis.com/maps/api/geocode/json?address="
 end_url = downcase_street_address.gsub(' ','+')
 url = beg_url.concat(end_url)
 
+
 parsed_data = JSON.parse(open(url).read)
 
     @latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
