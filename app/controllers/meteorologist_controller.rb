@@ -14,9 +14,9 @@ class MeteorologistController < ApplicationController
     #
     # The street address that the user typed is in the variable @street_address.
     # ==========================================================================
-    downcase_street_address = @street_address.downcase
+    # downcase_street_address = @street_address.downcase
     beg_url = "https://maps.googleapis.com/maps/api/geocode/json?address="
-    end_url = downcase_street_address.gsub(' ','+')
+    end_url = @street_address.gsub(' ','+')
     url = beg_url.concat(end_url)
     parsed_data = JSON.parse(open(url).read)
 
